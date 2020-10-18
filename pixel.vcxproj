@@ -88,7 +88,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SFML_STATIC;SFML_STATICSFML_STATICSFML_STATICWIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\cpp\pixel\src;D:\cpp\pixel\include;C:\Users\filol\source\repos\pixel\src;C:\Users\filol\source\repos\pixel\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\filol\source\repos\pixel\PixelCrocodile\src;D:\cpp\pixel\src;D:\cpp\pixel\include;C:\Users\filol\source\repos\pixel\src;C:\Users\filol\source\repos\pixel\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -105,7 +105,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SFML_STATIC;SFML_STATICSFML_STATICSFML_STATICWIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\cpp\pixel\src;D:\cpp\pixel\include;C:\Users\filol\source\repos\pixel\src;C:\Users\filol\source\repos\pixel\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\filol\source\repos\pixel\PixelCrocodile\src;D:\cpp\pixel\src;D:\cpp\pixel\include;C:\Users\filol\source\repos\pixel\src;C:\Users\filol\source\repos\pixel\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -122,7 +122,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SFML_STATIC;SFML_STATICSFML_STATICSFML_STATIC_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\cpp\pixel\src;D:\cpp\pixel\include;D:\cpp\pixel\src;D:\cpp\pixel\include;C:\Users\filol\source\repos\pixel\src;C:\Users\filol\source\repos\pixel\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\filol\source\repos\pixel\PixelCrocodile\src;D:\cpp\pixel\src;D:\cpp\pixel\include;D:\cpp\pixel\src;D:\cpp\pixel\include;C:\Users\filol\source\repos\pixel\src;C:\Users\filol\source\repos\pixel\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -139,7 +139,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SFML_STATIC;SFML_STATICSFML_STATICSFML_STATICNDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\cpp\pixel\src;D:\cpp\pixel\include;C:\Users\filol\source\repos\pixel\src;C:\Users\filol\source\repos\pixel\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\filol\source\repos\pixel\PixelCrocodile\src;D:\cpp\pixel\src;D:\cpp\pixel\include;C:\Users\filol\source\repos\pixel\src;C:\Users\filol\source\repos\pixel\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -151,9 +151,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\GameClass.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\GameClass.h" />
     <ClInclude Include="include\SFML\Audio.hpp" />
     <ClInclude Include="include\SFML\Config.hpp" />
     <ClInclude Include="include\SFML\GpuPreference.hpp" />
