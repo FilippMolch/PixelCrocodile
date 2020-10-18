@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Исходные файлы">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\SFML\Audio.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SFML\Config.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SFML\GpuPreference.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SFML\Graphics.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SFML\Main.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SFML\Network.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SFML\OpenGL.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SFML\System.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SFML\Window.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="lib\flac.lib" />
+    <Library Include="lib\freetype.lib" />
+    <Library Include="lib\ogg.lib" />
+    <Library Include="lib\openal32.lib" />
+    <Library Include="lib\sfml-audio.lib" />
+    <Library Include="lib\sfml-audio-d.lib" />
+    <Library Include="lib\sfml-audio-s.lib" />
+    <Library Include="lib\sfml-audio-s-d.lib" />
+    <Library Include="lib\sfml-graphics.lib" />
+    <Library Include="lib\sfml-graphics-d.lib" />
+    <Library Include="lib\sfml-graphics-s.lib" />
+    <Library Include="lib\sfml-graphics-s-d.lib" />
+    <Library Include="lib\sfml-main.lib" />
+    <Library Include="lib\sfml-main-d.lib" />
+    <Library Include="lib\sfml-network.lib" />
+    <Library Include="lib\sfml-network-d.lib" />
+    <Library Include="lib\sfml-network-s.lib" />
+    <Library Include="lib\sfml-network-s-d.lib" />
+    <Library Include="lib\sfml-system.lib" />
+    <Library Include="lib\sfml-system-d.lib" />
+    <Library Include="lib\sfml-system-s.lib" />
+    <Library Include="lib\sfml-system-s-d.lib" />
+    <Library Include="lib\sfml-window.lib" />
+    <Library Include="lib\sfml-window-d.lib" />
+    <Library Include="lib\sfml-window-s.lib" />
+    <Library Include="lib\sfml-window-s-d.lib" />
+    <Library Include="lib\vorbis.lib" />
+    <Library Include="lib\vorbisenc.lib" />
+    <Library Include="lib\vorbisfile.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="lib\sfml-audio-d.pdb" />
+    <None Include="lib\sfml-audio-s-d.pdb" />
+    <None Include="lib\sfml-graphics-d.pdb" />
+    <None Include="lib\sfml-graphics-s-d.pdb" />
+    <None Include="lib\sfml-main-s-d.pdb" />
+    <None Include="lib\sfml-network-d.pdb" />
+    <None Include="lib\sfml-network-s-d.pdb" />
+    <None Include="lib\sfml-system-d.pdb" />
+    <None Include="lib\sfml-system-s-d.pdb" />
+    <None Include="lib\sfml-window-d.pdb" />
+    <None Include="lib\sfml-window-s-d.pdb" />
+    <None Include="x64\Release\files\blur.frag" />
+  </ItemGroup>
+</Project>
