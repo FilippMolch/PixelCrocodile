@@ -10,7 +10,5 @@ using namespace sf;
 GameClass game;
 
 int main(){
-	
-	game.gameMainLoop();
 
 }

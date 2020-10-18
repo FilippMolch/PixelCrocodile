@@ -1,24 +1,24 @@
 ﻿  GameClass.cpp
-C:\Users\filol\source\repos\pixel\PixelCrocodile\src\GameClass.cpp(52,37): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+C:\Users\filol\source\repos\pixel\PixelCrocodile\src\GameClass.cpp(53,37): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
           with
           [
               T=float
           ]
-C:\Users\filol\source\repos\pixel\PixelCrocodile\src\GameClass.cpp(60,106): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-C:\Users\filol\source\repos\pixel\PixelCrocodile\src\GameClass.cpp(60,62): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-C:\Users\filol\source\repos\pixel\PixelCrocodile\src\GameClass.cpp(64,60): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-C:\Users\filol\source\repos\pixel\PixelCrocodile\src\GameClass.cpp(64,30): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-C:\Users\filol\source\repos\pixel\PixelCrocodile\src\GameClass.cpp(89,73): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-C:\Users\filol\source\repos\pixel\PixelCrocodile\src\GameClass.cpp(89,48): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-C:\Users\filol\source\repos\pixel\PixelCrocodile\src\GameClass.cpp(108,89): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-C:\Users\filol\source\repos\pixel\PixelCrocodile\src\GameClass.cpp(108,49): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-C:\Users\filol\source\repos\pixel\PixelCrocodile\src\GameClass.cpp(110,57): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-C:\Users\filol\source\repos\pixel\PixelCrocodile\src\GameClass.cpp(110,26): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-C:\Users\filol\source\repos\pixel\PixelCrocodile\src\GameClass.cpp(153,44): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\filol\source\repos\pixel\PixelCrocodile\src\GameClass.cpp(61,106): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+C:\Users\filol\source\repos\pixel\PixelCrocodile\src\GameClass.cpp(61,62): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+C:\Users\filol\source\repos\pixel\PixelCrocodile\src\GameClass.cpp(65,60): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+C:\Users\filol\source\repos\pixel\PixelCrocodile\src\GameClass.cpp(65,30): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+C:\Users\filol\source\repos\pixel\PixelCrocodile\src\GameClass.cpp(90,73): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+C:\Users\filol\source\repos\pixel\PixelCrocodile\src\GameClass.cpp(90,48): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+C:\Users\filol\source\repos\pixel\PixelCrocodile\src\GameClass.cpp(109,89): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+C:\Users\filol\source\repos\pixel\PixelCrocodile\src\GameClass.cpp(109,49): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+C:\Users\filol\source\repos\pixel\PixelCrocodile\src\GameClass.cpp(111,57): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+C:\Users\filol\source\repos\pixel\PixelCrocodile\src\GameClass.cpp(111,26): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+C:\Users\filol\source\repos\pixel\PixelCrocodile\src\GameClass.cpp(155,44): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
   main.cpp
   Создание кода
-  35 of 122 functions (28.7%) were compiled, the rest were copied from previous compilation.
-    9 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  4 of 122 functions ( 3.3%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    3 functions had inline decision re-evaluated but remain unchanged
   Создание кода завершено
   pixel.vcxproj -> C:\Users\filol\source\repos\pixel\PixelCrocodile\x64\Release\pixel.exe

@@ -6,6 +6,7 @@ GameClass::GameClass() {
 	windowOther.setFramerateLimit(60);
 
 	windowScreen = &windowOther;
+	this->gameMainLoop();
 }
 
 
@@ -128,6 +129,7 @@ void GameClass::drawNickNameInput() {
 }
 
 void GameClass::windowEvents() {
+
 	Event eve;
 
 	while (windowScreen->pollEvent(eve))
@@ -163,6 +165,8 @@ void GameClass::gameMainLoop() {
 
 	while (windowScreen->isOpen())
 	{
+
+		
 
 		this->windowEvents();
 
