@@ -6,6 +6,7 @@
 #include <SFML/Graphics.hpp>
 #include <cmath>
 #include <vector>
+#include <PaintClass.h>
 
 using namespace std;
 using namespace sf;
@@ -16,6 +17,7 @@ private:
 	RenderWindow* windowScreen;
 	ContextSettings setting;
 	string nickText = "";
+	
 
 	bool gameStart = false;
 	bool nickInputFocus = true;
@@ -27,16 +29,21 @@ private:
 	int cursorShift = 0;
 	int windowX = VideoMode::getFullscreenModes()[0].width;
 	int windowY = VideoMode::getFullscreenModes()[0].height;
+
 public:
 
 	GameClass();
 
 	int getCharSize(char deco);
 
-	void drawButtons(string txt, int y, int textShift);
+	bool drawSettingButtons();
+	bool drawPlayButtons();
+
+	void settingDraw();
 	void drawNickNameInput();
 	void windowEvents();
 	void gameMainLoop();
+	void initPaint();
 
 };
 

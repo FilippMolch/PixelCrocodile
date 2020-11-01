@@ -9,6 +9,9 @@ GameClass::GameClass() {
 	this->gameMainLoop();
 }
 
+void GameClass::settingDraw() {
+
+}
 
 int GameClass::getCharSize(char deco) {
 
@@ -46,8 +49,13 @@ int GameClass::getCharSize(char deco) {
 
 }
 
-void GameClass::drawButtons(string txt, int y, int textShift) {
+bool GameClass::drawPlayButtons() {
+	string txt = "play";
 
+	int y = 0;
+	int textShift = 0;
+	int MouseX = Mouse::getPosition().x;
+	int MouseY = Mouse::getPosition().y;
 	int width = 90;
 
 	RectangleShape playButton(Vector2f(width, 30 - 5));
@@ -65,10 +73,73 @@ void GameClass::drawButtons(string txt, int y, int textShift) {
 	playButton.move(windowX / 2 - width / 2, windowY / 2 - 90 + y);
 
 	playButton.setOutlineThickness(3.f);
-	playButton.setOutlineColor(Color(90, 90, 90));
+
+	bool xHandler = MouseX >= (windowX / 2) + (width / 2) - 90 && MouseX <= windowX / 2 + width - width / 2;
+	bool yHandler = MouseY >= windowY / 2 - 90 + y && MouseY <= windowY / 2 - 90 + y + 30;
+
+	if (xHandler && yHandler)
+	{
+		playButton.setOutlineColor(Color(200, 200, 200));
+		cout << "Yes" << endl;
+		if (Mouse::isButtonPressed(Mouse::Left))
+			return true;
+	}
+	else
+	{
+		playButton.setOutlineColor(Color(90, 90, 90));
+	}
 
 	windowScreen->draw(playButton);
 	windowScreen->draw(playNameInputContent);
+
+	return false;
+}
+
+
+bool GameClass::drawSettingButtons() {
+	string txt = "Setting";
+
+	int y = 50;
+	int textShift = 10;
+	int MouseX = Mouse::getPosition().x;
+	int MouseY = Mouse::getPosition().y;
+	int width = 90;
+
+	RectangleShape playButton(Vector2f(width, 30 - 5));
+	Font playFont;
+	Text playNameInputContent;
+
+	playFont.loadFromFile("files\\font.ttf");
+
+	playNameInputContent.setFont(playFont);
+	playNameInputContent.setString(txt);
+	playNameInputContent.move(windowX / 2 + width / 2 - 90 + 28 - textShift, windowY / 2 - 150 - 8 + 60 - 5 + y);
+	playNameInputContent.setFillColor(Color::White);
+
+	playButton.setFillColor(Color(70, 70, 70));
+	playButton.move(windowX / 2 - width / 2, windowY / 2 - 90 + y);
+
+	playButton.setOutlineThickness(3.f);
+
+	bool xHandler = MouseX >= (windowX / 2) + (width / 2) - 90 && MouseX <= windowX / 2 + width - width / 2;
+	bool yHandler = MouseY >= windowY / 2 - 90 + y && MouseY <= windowY / 2 - 90 + y + 30;
+
+	if (xHandler && yHandler)
+	{
+		playButton.setOutlineColor(Color(200, 200, 200));
+		cout << "Yes" << endl;
+		if (Mouse::isButtonPressed(Mouse::Left))
+			return true;
+	}
+	else
+	{
+		playButton.setOutlineColor(Color(90, 90, 90));
+	}
+
+	windowScreen->draw(playButton);
+	windowScreen->draw(playNameInputContent);
+
+	return false;
 }
 
 void GameClass::drawNickNameInput() {
@@ -126,6 +197,7 @@ void GameClass::drawNickNameInput() {
 			windowScreen->draw(cursor);
 	}
 	windowScreen->draw(nickNameInputContent);
+
 }
 
 void GameClass::windowEvents() {
@@ -152,7 +224,7 @@ void GameClass::windowEvents() {
 
 			if (eve.text.unicode == 8 && nickText.size() > 0)
 			{
-				int res = cursorShift / nickText.size();
+				int res = (int)cursorShift / (int)nickText.size();
 				nickText.pop_back();
 				cursorShift -= res;
 			}
@@ -166,18 +238,35 @@ void GameClass::gameMainLoop() {
 	while (windowScreen->isOpen())
 	{
 
-		
-
 		this->windowEvents();
 
 		if (!gameStart)
 		{
 			drawNickNameInput();
-			drawButtons("play", 0, 0);
-			drawButtons("setting", 50, 7);
+			
+			if (drawPlayButtons())
+			{
+				gameStart = true;
+			}
+
+			if (drawSettingButtons())
+			{
+				this->settingDraw();
+			}
+
+			windowScreen->display();
+			windowScreen->clear(Color(50, 50, 50));
+			
 		}
 
-		windowScreen->display();
-		windowScreen->clear(Color(50, 50, 50));
+		if (gameStart)
+		{
+
+			
+			
+			windowScreen->clear(Color::White);
+			windowScreen->display();
+		}
+
 	}
 }

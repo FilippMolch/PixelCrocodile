@@ -7,8 +7,9 @@
 using namespace std;
 using namespace sf;
 
-GameClass game;
-
 int main(){
-
+	setlocale(0, 0);
+	
+	GameClass game;
+	return 0;
 }
