@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef Code
-#define Code
+#ifndef Cod
+#define Cod
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
@@ -10,19 +10,21 @@
 
 using namespace std;
 using namespace sf;
+
 class PaintClass
 {
 
 private:
-
 	vector<vector<int>> paintArr;
 	RenderWindow* windowScreen;
-public:
 
+public:
 	void painting();
-	void addVector();
+	void addVector(int x, int y);
 
 	PaintClass(RenderWindow* windowScreen);
+	PaintClass();
+
 };
 
-#endif Code
+#endif Cod

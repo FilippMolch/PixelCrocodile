@@ -3,13 +3,14 @@
 #include <cmath>
 #include <vector>
 #include <GameClass.h>
+#include <windows.h>
 
 using namespace std;
 using namespace sf;
 
 int main(){
-	setlocale(0, 0);
-	
+	system("chcp 1251>null");
+
 	GameClass game;
 	return 0;
 }

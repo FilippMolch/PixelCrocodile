@@ -7,9 +7,12 @@
 #include <cmath>
 #include <vector>
 #include <PaintClass.h>
+#include <boost/property_tree/json_parser.hpp>
 
 using namespace std;
 using namespace sf;
+using namespace boost;
+using namespace property_tree;
 
 class GameClass
 {
@@ -17,7 +20,6 @@ private:
 	RenderWindow* windowScreen;
 	ContextSettings setting;
 	string nickText = "";
-	
 
 	bool gameStart = false;
 	bool nickInputFocus = true;
@@ -31,10 +33,11 @@ private:
 	int windowY = VideoMode::getFullscreenModes()[0].height;
 
 public:
-
 	GameClass();
 
 	int getCharSize(char deco);
+
+	vector<int> getScreenSize();
 
 	bool drawSettingButtons();
 	bool drawPlayButtons();
@@ -43,7 +46,6 @@ public:
 	void drawNickNameInput();
 	void windowEvents();
 	void gameMainLoop();
-	void initPaint();
 
 };
 

@@ -2,7 +2,10 @@
 
 GameClass::GameClass() {
 	setting.antialiasingLevel = 8;
-	RenderWindow windowOther(VideoMode::getFullscreenModes()[0], "test", Style::Fullscreen, setting);
+	
+	//VideoMode::getFullscreenModes()[0]
+
+	RenderWindow windowOther(VideoMode(1920/2, 1080/2), "test", Style::Default, setting);
 	windowOther.setFramerateLimit(60);
 
 	windowScreen = &windowOther;
@@ -80,7 +83,6 @@ bool GameClass::drawPlayButtons() {
 	if (xHandler && yHandler)
 	{
 		playButton.setOutlineColor(Color(200, 200, 200));
-		cout << "Yes" << endl;
 		if (Mouse::isButtonPressed(Mouse::Left))
 			return true;
 	}
@@ -127,7 +129,6 @@ bool GameClass::drawSettingButtons() {
 	if (xHandler && yHandler)
 	{
 		playButton.setOutlineColor(Color(200, 200, 200));
-		cout << "Yes" << endl;
 		if (Mouse::isButtonPressed(Mouse::Left))
 			return true;
 	}
@@ -261,8 +262,6 @@ void GameClass::gameMainLoop() {
 
 		if (gameStart)
 		{
-
-			
 			
 			windowScreen->clear(Color::White);
 			windowScreen->display();
