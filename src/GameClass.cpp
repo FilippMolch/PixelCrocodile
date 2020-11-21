@@ -7,7 +7,7 @@ GameClass::GameClass() {
 	setting.antialiasingLevel = SettingsProgram.antialiasingLevel;
 	
 	windowSizeXY = {SettingsProgram.WindowSizeXJSON,
-				    SettingsProgram.WindowSizeYJSON};
+					SettingsProgram.WindowSizeYJSON};
 
 	int screenStyle = 7;
 
