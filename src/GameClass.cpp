@@ -20,15 +20,23 @@ GameClass::GameClass() {
 
 vector<int> GameClass::getScreenSize() {
 
-	ifstream ifs("files\\settings.json");
-	ptree pt;
-	read_json(ifs, pt);
-	int s(pt.get<int>("screenSizeX"));
-	//pt.add<int>();
+	try
+	{
+		ifstream ifs("files\\settings.json");
+		ptree pt;
+		read_json(ifs, pt);
+		int s(pt.get<int>("screenSizeX"));
+		//pt.add<int>();
 
-	vector<int> cache = {1920, 1080};
+		vector<int> cache = {1920, 1080};
+		return cache;
+	}
+	catch (const std::exception&)
+	{
+		vector<int> cache = { 1920, 1080 };
+		return cache;
+	}
 
-	return cache;
 }
 
 void GameClass::settingDraw() {
