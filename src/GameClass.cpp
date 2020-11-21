@@ -1,15 +1,34 @@
-#include "GameClass.h"
+﻿#include "GameClass.h"
 
 GameClass::GameClass() {
 	setting.antialiasingLevel = 8;
 	
-	//VideoMode::getFullscreenModes()[0]
+	//VideoMode(1920/2, 1080/2)
 
-	RenderWindow windowOther(VideoMode(1920/2, 1080/2), "test", Style::Default, setting);
+	RenderWindow windowOther(VideoMode(1920, 1080), "test", Style::Fullscreen, setting);
 	windowOther.setFramerateLimit(60);
 
 	windowScreen = &windowOther;
+	
+	vector<int> windowS = getScreenSize();
+	
+	cout << windowS[0] << ": X, " << windowS[1] << ": Y";
+
 	this->gameMainLoop();
+
+}
+
+vector<int> GameClass::getScreenSize() {
+
+	ifstream ifs("files\\settings.json");
+	ptree pt;
+	read_json(ifs, pt);
+	int s(pt.get<int>("screenSizeX"));
+	//pt.add<int>();
+
+	vector<int> cache = {1920, 1080};
+
+	return cache;
 }
 
 void GameClass::settingDraw() {
@@ -232,6 +251,7 @@ void GameClass::windowEvents() {
 
 		}
 	}
+
 }
 
 void GameClass::gameMainLoop() {
@@ -260,12 +280,17 @@ void GameClass::gameMainLoop() {
 			
 		}
 
+		if (Keyboard::isKeyPressed(Keyboard::Space)) 
+		{
+			gameStart = 1;
+		}
+
 		if (gameStart)
 		{
 			
 			windowScreen->clear(Color::White);
 			windowScreen->display();
 		}
-
+		getScreenSize();
 	}
 }

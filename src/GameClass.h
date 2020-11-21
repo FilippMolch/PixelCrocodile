@@ -7,6 +7,7 @@
 #include <cmath>
 #include <vector>
 #include <PaintClass.h>
+#include <fstream>
 #include <boost/property_tree/json_parser.hpp>
 
 using namespace std;
@@ -26,17 +27,25 @@ private:
 	bool playButtonFocus = false;
 	bool index = true;
 	bool cursorNick = true;
+	bool loadJSON = false;
 
 	int lastTime = 0;
 	int cursorShift = 0;
 	int windowX = VideoMode::getFullscreenModes()[0].width;
 	int windowY = VideoMode::getFullscreenModes()[0].height;
+	
+	struct ProgramSetting {
+		int WindowSizeXDefault = 800;
+		int WindowSizeYDefault = 640;
+		
+		int WindowSizeXJSON;
+		int WindowSizeYJSON;
+	};
 
 public:
 	GameClass();
 
 	int getCharSize(char deco);
-
 	vector<int> getScreenSize();
 
 	bool drawSettingButtons();

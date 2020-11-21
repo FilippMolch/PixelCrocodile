@@ -139,7 +139,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SFML_STATIC;SFML_STATICSFML_STATICSFML_STATICNDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\filol\source\repos\pixel\PixelCrocodile\src;D:\cpp\pixel\src;D:\cpp\pixel\include;C:\Users\filol\source\repos\pixel\src;C:\Users\filol\source\repos\pixel\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\boost_1_74_0\;C:\Users\fililol\source\repos\pixel\PixelCrocodile\src;C:\Users\fililol\source\repos\pixel\PixelCrocodile\include;C:\Users\filol\source\repos\pixel\PixelCrocodile\src;D:\cpp\pixel\src;D:\cpp\pixel\include;C:\Users\filol\source\repos\pixel\src;C:\Users\filol\source\repos\pixel\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -147,14 +147,16 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>opengl32.lib;openal32.lib;freetype.lib;winmm.lib;gdi32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;ws2_32.lib;sfml-graphics-s.lib;sfml-window-s.lib;sfml-system-s.lib;sfml-audio-s.lib;sfml-network-s.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:\cpp\pixel\lib;C:\Users\filol\source\repos\pixel\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\SFML-2.5.1\lib;D:\cpp\pixel\lib;C:\Users\filol\source\repos\pixel\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\GameClass.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\paint.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\PaintClass.h" />
     <ClInclude Include="src\GameClass.h" />
     <ClInclude Include="include\SFML\Audio.hpp" />
     <ClInclude Include="include\SFML\Config.hpp" />

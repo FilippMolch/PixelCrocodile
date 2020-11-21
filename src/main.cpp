@@ -8,8 +8,9 @@
 using namespace std;
 using namespace sf;
 
-int main(){
-	system("chcp 1251>null");
+int main(int argc, char* argv[]){
+	system("echo \" .vs \" .gitignore ");
+	system("chcp 1251>nul");
 
 	GameClass game;
 	return 0;
