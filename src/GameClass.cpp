@@ -46,12 +46,37 @@ void GameClass::initSettingStruct() {
 		loadJSON = false;
 	}
 
+}
 
+bool GameClass::XYHandler(int x, int y, int xSize, int ySize){
+	bool XHandler = eventVars.mouseX >= x && eventVars.mouseX <= x + xSize;
+	bool YHandler = eventVars.mouseY >= y && eventVars.mouseY <= x + ySize;
 
+	if (XHandler && YHandler)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 
 void GameClass::settingDraw() {
+	RectangleShape test(Vector2f(100, 100));
+	test.move(500, 400);
 
+	if (XYHandler(500, 400, 100, 100))
+	{
+		test.setFillColor(Color::Magenta);
+	}
+	else
+	{
+		test.setFillColor(Color::Black);
+	}
+
+	windowScreen->draw(test);
+	windowScreen->display();
 }
 
 int GameClass::getCharSize(char deco) {
@@ -209,7 +234,7 @@ void GameClass::drawNickNameInput() {
 
 	if (Mouse::isButtonPressed(Mouse::Left))
 	{
-		if (MouseX >= nickNameX / 2 - 150 && MouseX <= nickNameX / 2 + 150 && MouseY >= nickNameY / 2 - 150 && MouseY <= nickNameY / 2 - 150 + 30)
+		if (XYHandler(nickNameX / 2 - nickWidth / 2 + 10 + cursorShift, nickNameY / 2 - 150 + 10 - 2, nickWidth, 30))
 			nickInputFocus = true;
 		else
 			nickInputFocus = false;
@@ -286,7 +311,7 @@ void GameClass::gameMainLoop() {
 
 		this->windowEvents();
 
-		if (!gameStart)
+		if (!gameStart && !inSetting)
 		{
 			drawNickNameInput();
 			
@@ -297,12 +322,17 @@ void GameClass::gameMainLoop() {
 
 			if (drawSettingButtons())
 			{
-				this->settingDraw();
+				inSetting = true;
 			}
 
 			windowScreen->display();
 			windowScreen->clear(Color(50, 50, 50));
 			
+		}
+
+		if (inSetting)
+		{
+			this->settingDraw();
 		}
 
 		if (Keyboard::isKeyPressed(Keyboard::Space)) 

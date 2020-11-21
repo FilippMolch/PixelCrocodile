@@ -21,6 +21,7 @@ private:
 	RenderWindow* windowScreen;
 	ContextSettings setting;
 	string nickText = "";
+	vector<int> windowSizeXY;
 
 	bool gameStart = false;
 	bool nickInputFocus = true;
@@ -28,8 +29,8 @@ private:
 	bool index = true;
 	bool cursorNick = true;
 	bool loadJSON = false;
+	bool inSetting = false;
 
-	vector<int> windowSizeXY;
 	int lastTime = 0;
 	int cursorShift = 0;
 	int windowX;
@@ -62,6 +63,7 @@ public:
 
 	bool drawSettingButtons();
 	bool drawPlayButtons();
+	bool XYHandler(int x, int y, int xSize, int ySize);
 
 	void initSettingStruct();
 	void settingDraw();
