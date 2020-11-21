@@ -29,10 +29,11 @@ private:
 	bool cursorNick = true;
 	bool loadJSON = false;
 
+	vector<int> windowSizeXY;
 	int lastTime = 0;
 	int cursorShift = 0;
-	int windowX = VideoMode::getFullscreenModes()[0].width;
-	int windowY = VideoMode::getFullscreenModes()[0].height;
+	int windowX;
+	int windowY;
 	
 	struct ProgramSetting {
 		int WindowSizeXDefault = 800;
@@ -45,10 +46,17 @@ private:
 		bool fullScreen;
 	};
 
+	struct EventVars
+	{
+		int mouseX;
+		int mouseY;
+	};
+
 public:
 	GameClass();
 
 	ProgramSetting SettingsProgram;
+	EventVars eventVars;
 
 	int getCharSize(char deco);
 

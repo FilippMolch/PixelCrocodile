@@ -1,6 +1,6 @@
 {
-  "screenSizeX": 800,
-  "screenSizeY": 640,
-  "antialiasingLevel": 10,
-  "fullScreen":  false
+  "screenSizeX": 1920,
+  "screenSizeY": 1080,
+  "antialiasingLevel": 5,
+  "fullScreen":  true
 }

@@ -1,17 +1,28 @@
 ﻿#include "GameClass.h"
 
 GameClass::GameClass() {
-	setting.antialiasingLevel = 8;
 	
-	//VideoMode(1920/2, 1080/2)
-
 	initSettingStruct();
+
+	setting.antialiasingLevel = SettingsProgram.antialiasingLevel;
 	
-	RenderWindow windowOther(VideoMode(1920, 1080), "test", Style::Fullscreen, setting);
+	windowSizeXY = {SettingsProgram.WindowSizeXJSON,
+				    SettingsProgram.WindowSizeYJSON};
+
+	int screenStyle = 7;
+
+	if (SettingsProgram.fullScreen)
+		screenStyle = 8;
+	else
+		screenStyle = 7;
+
+	windowX = windowSizeXY[0];
+	windowY = windowSizeXY[1];
+
+	RenderWindow windowOther(VideoMode(windowSizeXY[0], windowSizeXY[1]), "PixelCrocodile", screenStyle, setting);
 	windowOther.setFramerateLimit(60);
 
 	windowScreen = &windowOther;
-	
 
 	this->gameMainLoop();
 
@@ -29,12 +40,10 @@ void GameClass::initSettingStruct() {
 		SettingsProgram.WindowSizeYJSON = pt.get<int>("screenSizeY");
 		SettingsProgram.antialiasingLevel = pt.get<int>("antialiasingLevel");
 		SettingsProgram.fullScreen = pt.get<bool>("fullScreen");
-		
-		cout << SettingsProgram.WindowSizeXJSON << SettingsProgram.WindowSizeYJSON << SettingsProgram.antialiasingLevel << SettingsProgram.fullScreen << endl;
 	}			
 	catch (const std::exception&)
 	{
-
+		loadJSON = false;
 	}
 
 
@@ -86,8 +95,8 @@ bool GameClass::drawPlayButtons() {
 
 	int y = 0;
 	int textShift = 0;
-	int MouseX = Mouse::getPosition().x;
-	int MouseY = Mouse::getPosition().y;
+	int MouseX = eventVars.mouseX;
+	int MouseY = eventVars.mouseY;
 	int width = 90;
 
 	RectangleShape playButton(Vector2f(width, 30 - 5));
@@ -132,8 +141,8 @@ bool GameClass::drawSettingButtons() {
 
 	int y = 50;
 	int textShift = 10;
-	int MouseX = Mouse::getPosition().x;
-	int MouseY = Mouse::getPosition().y;
+	int MouseX = eventVars.mouseX;
+	int MouseY = eventVars.mouseY;
 	int width = 90;
 
 	RectangleShape playButton(Vector2f(width, 30 - 5));
@@ -174,10 +183,10 @@ bool GameClass::drawSettingButtons() {
 
 void GameClass::drawNickNameInput() {
 	const int nickWidth = 300;
-	int nickNameX = VideoMode::getFullscreenModes()[0].width;
-	int nickNameY = VideoMode::getFullscreenModes()[0].height;
-	int MouseX = Mouse::getPosition().x;
-	int MouseY = Mouse::getPosition().y;
+	int nickNameX = windowSizeXY[0];
+	int nickNameY = windowSizeXY[1];
+	int MouseX = eventVars.mouseX;
+	int MouseY = eventVars.mouseY;
 	int timeProgram = clock();
 	RectangleShape cursor(Vector2f(2, 14));
 	RectangleShape rect(Vector2f(nickWidth, 30));
@@ -259,6 +268,12 @@ void GameClass::windowEvents() {
 				cursorShift -= res;
 			}
 
+		}
+
+		if (eve.type == Event::MouseMoved)
+		{
+			eventVars.mouseX = eve.mouseMove.x;
+			eventVars.mouseY = eve.mouseMove.y;
 		}
 	}
 
