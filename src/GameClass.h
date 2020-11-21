@@ -40,17 +40,22 @@ private:
 		
 		int WindowSizeXJSON;
 		int WindowSizeYJSON;
+
+		int antialiasingLevel;
+		bool fullScreen;
 	};
 
 public:
 	GameClass();
 
+	ProgramSetting SettingsProgram;
+
 	int getCharSize(char deco);
-	vector<int> getScreenSize();
 
 	bool drawSettingButtons();
 	bool drawPlayButtons();
 
+	void initSettingStruct();
 	void settingDraw();
 	void drawNickNameInput();
 	void windowEvents();

@@ -5,37 +5,39 @@ GameClass::GameClass() {
 	
 	//VideoMode(1920/2, 1080/2)
 
+	initSettingStruct();
+	
 	RenderWindow windowOther(VideoMode(1920, 1080), "test", Style::Fullscreen, setting);
 	windowOther.setFramerateLimit(60);
 
 	windowScreen = &windowOther;
 	
-	vector<int> windowS = getScreenSize();
-	
-	cout << windowS[0] << ": X, " << windowS[1] << ": Y";
 
 	this->gameMainLoop();
 
 }
 
-vector<int> GameClass::getScreenSize() {
+void GameClass::initSettingStruct() {
 
 	try
 	{
 		ifstream ifs("files\\settings.json");
 		ptree pt;
 		read_json(ifs, pt);
-		int s(pt.get<int>("screenSizeX"));
-		//pt.add<int>();
 
-		vector<int> cache = {1920, 1080};
-		return cache;
-	}
+		SettingsProgram.WindowSizeXJSON = pt.get<int>("screenSizeX");
+		SettingsProgram.WindowSizeYJSON = pt.get<int>("screenSizeY");
+		SettingsProgram.antialiasingLevel = pt.get<int>("antialiasingLevel");
+		SettingsProgram.fullScreen = pt.get<bool>("fullScreen");
+		
+		cout << SettingsProgram.WindowSizeXJSON << SettingsProgram.WindowSizeYJSON << SettingsProgram.antialiasingLevel << SettingsProgram.fullScreen << endl;
+	}			
 	catch (const std::exception&)
 	{
-		vector<int> cache = { 1920, 1080 };
-		return cache;
+
 	}
+
+
 
 }
 
@@ -299,6 +301,5 @@ void GameClass::gameMainLoop() {
 			windowScreen->clear(Color::White);
 			windowScreen->display();
 		}
-		getScreenSize();
 	}
 }
