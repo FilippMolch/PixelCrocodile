@@ -40,6 +40,8 @@ void GameClass::initSettingStruct() {
 		SettingsProgram.WindowSizeYJSON = pt.get<int>("screenSizeY");
 		SettingsProgram.antialiasingLevel = pt.get<int>("antialiasingLevel");
 		SettingsProgram.fullScreen = pt.get<bool>("fullScreen");
+
+		loadJSON = true;
 	}			
 	catch (const std::exception&)
 	{
@@ -53,13 +55,9 @@ bool GameClass::XYHandler(int x, int y, int xSize, int ySize){
 	bool YHandler = eventVars.mouseY >= y && eventVars.mouseY <= x + ySize;
 
 	if (XHandler && YHandler)
-	{
 		return true;
-	}
 	else
-	{
 		return false;
-	}
 }
 
 void GameClass::settingDraw() {
@@ -234,7 +232,7 @@ void GameClass::drawNickNameInput() {
 
 	if (Mouse::isButtonPressed(Mouse::Left))
 	{
-		if (XYHandler(nickNameX / 2 - nickWidth / 2 + 10 + cursorShift, nickNameY / 2 - 150 + 10 - 2, nickWidth, 30))
+		if (XYHandler(nickNameX / 2 - nickWidth / 2 + 10 + cursorShift, nickNameY / 2 - 150 + 10 - 2, 300, 30))
 			nickInputFocus = true;
 		else
 			nickInputFocus = false;
