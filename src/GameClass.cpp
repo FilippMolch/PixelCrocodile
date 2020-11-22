@@ -12,13 +12,13 @@ GameClass::GameClass() {
 	int screenStyle = 7;
 
 	if (SettingsProgram.fullScreen)
-		screenStyle = 8;
+		screenStyle = Style::Fullscreen;
 	else
-		screenStyle = 7;
+		screenStyle = Style::Close;
 
 	windowX = windowSizeXY[0];
 	windowY = windowSizeXY[1];
-
+	
 	RenderWindow windowOther(VideoMode(windowSizeXY[0], windowSizeXY[1]), "PixelCrocodile", screenStyle, setting);
 	windowOther.setFramerateLimit(60);
 
@@ -52,7 +52,7 @@ void GameClass::initSettingStruct() {
 
 bool GameClass::XYHandler(int x, int y, int xSize, int ySize){
 	bool XHandler = eventVars.mouseX >= x && eventVars.mouseX <= x + xSize;
-	bool YHandler = eventVars.mouseY >= y && eventVars.mouseY <= x + ySize;
+	bool YHandler = eventVars.mouseY >= y && eventVars.mouseY <= y + ySize;
 
 	if (XHandler && YHandler)
 		return true;
@@ -138,10 +138,7 @@ bool GameClass::drawPlayButtons() {
 
 	playButton.setOutlineThickness(3.f);
 
-	bool xHandler = MouseX >= (windowX / 2) + (width / 2) - 90 && MouseX <= windowX / 2 + width - width / 2;
-	bool yHandler = MouseY >= windowY / 2 - 90 + y && MouseY <= windowY / 2 - 90 + y + 30;
-
-	if (xHandler && yHandler)
+	if (XYHandler(windowX / 2 - width / 2, windowY / 2 - 90 + y, width, 25))
 	{
 		playButton.setOutlineColor(Color(200, 200, 200));
 		if (Mouse::isButtonPressed(Mouse::Left))
@@ -184,10 +181,7 @@ bool GameClass::drawSettingButtons() {
 
 	playButton.setOutlineThickness(3.f);
 
-	bool xHandler = MouseX >= (windowX / 2) + (width / 2) - 90 && MouseX <= windowX / 2 + width - width / 2;
-	bool yHandler = MouseY >= windowY / 2 - 90 + y && MouseY <= windowY / 2 - 90 + y + 30;
-
-	if (xHandler && yHandler)
+	if (XYHandler(windowX / 2 - width / 2, windowY / 2 - 90 + y, width, 25))
 	{
 		playButton.setOutlineColor(Color(200, 200, 200));
 		if (Mouse::isButtonPressed(Mouse::Left))
