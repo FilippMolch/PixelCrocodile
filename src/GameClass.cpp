@@ -51,8 +51,33 @@ void GameClass::initSettingStruct() {
 }
 
 void GameClass::painting() {
-	RectangleShape lox(Vector2f(100, 100));
-	lox.move(100, 100);
+
+	if (Mouse::isButtonPressed(Mouse::Left)) 
+	{
+		addVector(
+			eventVars.mouseX,
+			eventVars.mouseY
+		);
+	}
+
+	for (int i = 0; i < paintArr.size(); i++)
+	{
+		CircleShape cir;
+		cir.setRadius(5);
+		cir.setFillColor(Color::Black);
+		cir.move(paintArr[i][0], paintArr[i][1]);
+
+		VertexArray line(Lines, 2);
+		line[0].position = Vector2f(0, 0);
+		line[0].color = Color(Color::Black);
+		line[1].position = Vector2f(10, 20);
+		line[1].color = Color(Color::Black);
+
+		windowScreen->draw(cir);
+		windowScreen->draw(line);
+	}
+
+	windowScreen->display();
 }
 
 void GameClass::addVector(int x, int y) {
@@ -347,10 +372,9 @@ void GameClass::gameMainLoop() {
 		if (gameStart)
 		{
 			
-			this->painting();
 
-			windowScreen->clear(Color::White);
-			windowScreen->display();
+			windowScreen->clear(Color(100, 100, 100));
+			this->painting();
 			
 		}
 	}

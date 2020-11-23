@@ -21,7 +21,7 @@ private:
 	ContextSettings setting;
 	string nickText = "";
 	vector<int> windowSizeXY;
-	vector<int> paintArr;
+	vector<vector<int>> paintArr;
 
 	bool gameStart = false;
 	bool nickInputFocus = true;
