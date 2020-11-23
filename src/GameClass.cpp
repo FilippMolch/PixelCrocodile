@@ -50,6 +50,17 @@ void GameClass::initSettingStruct() {
 
 }
 
+void GameClass::painting() {
+	RectangleShape lox(Vector2f(100, 100));
+	lox.move(100, 100);
+}
+
+void GameClass::addVector(int x, int y) {
+	vector<int> cache = { x, y };
+
+	paintArr.push_back(cache);
+}
+
 bool GameClass::XYHandler(int x, int y, int xSize, int ySize){
 	bool XHandler = eventVars.mouseX >= x && eventVars.mouseX <= x + xSize;
 	bool YHandler = eventVars.mouseY >= y && eventVars.mouseY <= y + ySize;
@@ -252,6 +263,7 @@ void GameClass::drawNickNameInput() {
 		if (cursorNick)
 			windowScreen->draw(cursor);
 	}
+
 	windowScreen->draw(nickNameInputContent);
 
 }
@@ -335,8 +347,11 @@ void GameClass::gameMainLoop() {
 		if (gameStart)
 		{
 			
+			this->painting();
+
 			windowScreen->clear(Color::White);
 			windowScreen->display();
+			
 		}
 	}
 }

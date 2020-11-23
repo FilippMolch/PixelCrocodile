@@ -6,7 +6,6 @@
 #include <SFML/Graphics.hpp>
 #include <cmath>
 #include <vector>
-#include <PaintClass.h>
 #include <fstream>
 #include <boost/property_tree/json_parser.hpp>
 
@@ -22,6 +21,7 @@ private:
 	ContextSettings setting;
 	string nickText = "";
 	vector<int> windowSizeXY;
+	vector<int> paintArr;
 
 	bool gameStart = false;
 	bool nickInputFocus = true;
@@ -65,6 +65,8 @@ public:
 	bool drawPlayButtons();
 	bool XYHandler(int x, int y, int xSize, int ySize);
 
+	void addVector(int x, int y);
+	void painting();
 	void initSettingStruct();
 	void settingDraw();
 	void drawNickNameInput();
