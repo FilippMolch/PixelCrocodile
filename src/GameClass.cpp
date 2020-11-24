@@ -50,7 +50,14 @@ void GameClass::initSettingStruct() {
 
 }
 
+void GameClass::linePaint() {
+
+}
+
 void GameClass::painting() {
+
+	if (Mouse::isButtonPressed(Mouse::Right))
+		paintArr.clear();
 
 	if (Mouse::isButtonPressed(Mouse::Left)) 
 	{
@@ -58,23 +65,37 @@ void GameClass::painting() {
 			eventVars.mouseX,
 			eventVars.mouseY
 		);
+		
 	}
 
-	for (int i = 0; i < paintArr.size(); i++)
+	for (int in = 1; in < paintArr.size(); in++)
+	{
+		if (paintArr[in][0] - paintArr[in-1][0] <= 100)
+		{
+			cout << paintArr[in][0] - paintArr[in-1][0] << endl;
+		}
+
+	}
+
+	for (int i = 1; i < paintArr.size(); i++)
 	{
 		CircleShape cir;
-		cir.setRadius(5);
+		cir.setRadius(3);
 		cir.setFillColor(Color::Black);
 		cir.move(paintArr[i][0], paintArr[i][1]);
 
-		VertexArray line(Lines, 2);
-		line[0].position = Vector2f(0, 0);
+		VertexArray line(Quads, 4);
+		line[0].position = Vector2f(100,100);
 		line[0].color = Color(Color::Black);
-		line[1].position = Vector2f(10, 20);
+		line[1].position = Vector2f(100, 200);
 		line[1].color = Color(Color::Black);
+		line[2].position = Vector2f(200,200);
+		line[2].color = Color(Color::Black);
+		line[3].position = Vector2f(200,100);
+		line[3].color = Color(Color::Black);
 
-		windowScreen->draw(cir);
 		windowScreen->draw(line);
+		windowScreen->draw(cir);
 	}
 
 	windowScreen->display();

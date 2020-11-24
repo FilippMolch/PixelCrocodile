@@ -66,6 +66,7 @@ public:
 	bool XYHandler(int x, int y, int xSize, int ySize);
 
 	void addVector(int x, int y);
+	void linePaint();
 	void painting();
 	void initSettingStruct();
 	void settingDraw();
