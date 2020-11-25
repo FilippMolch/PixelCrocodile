@@ -18,7 +18,17 @@ GameClass::GameClass() {
 
 	windowX = windowSizeXY[0];
 	windowY = windowSizeXY[1];
+
+	canvas.create(
+		SettingsProgram.WindowSizeXJSON,
+		SettingsProgram.WindowSizeYJSON
+	);
 	
+	canvasImage.create(
+		SettingsProgram.WindowSizeXJSON,
+		SettingsProgram.WindowSizeYJSON
+	);
+
 	RenderWindow windowOther(VideoMode(windowSizeXY[0], windowSizeXY[1]), "PixelCrocodile", screenStyle, setting);
 	windowOther.setFramerateLimit(60);
 
@@ -50,62 +60,47 @@ void GameClass::initSettingStruct() {
 
 }
 
-void GameClass::linePaint() {
-
-}
-
 void GameClass::painting() {
+	canvas.loadFromImage(canvasImage);
+	canvasSprite.setTexture(canvas);
+	
+	int x, y, iX, iY;
 
-	if (Mouse::isButtonPressed(Mouse::Right))
-		paintArr.clear();
-
-	if (Mouse::isButtonPressed(Mouse::Left)) 
+	iX = 0;
+	iY = 0;
+	x = eventVars.mouseX;
+	y = eventVars.mouseY;
+	
+	if (eventVars.LMB)
 	{
-		addVector(
-			eventVars.mouseX,
-			eventVars.mouseY
-		);
-		
-	}
+		vector<int> cache = { x, y };
+		paintVector.push_back(cache);
 
-	for (int in = 1; in < paintArr.size(); in++)
-	{
-		if (paintArr[in][0] - paintArr[in-1][0] <= 100)
+		if (paintVector.size() >= 2)
 		{
-			cout << paintArr[in][0] - paintArr[in-1][0] << endl;
+			if (paintVector[0][0] < paintVector[1][0] && paintVector[0][1] < paintVector[1][1])
+			{
+				while (paintVector[0][0] + iX < paintVector[1][0] && paintVector[0][1] + iY < paintVector[1][1])
+				{
+					iX++;
+					iY++;
+					canvasImage.setPixel(paintVector[0][0]+iX, paintVector[0][1]+iY, Color::White);
+				}
+			}
+			else
+			{
+				canvasImage.setPixel(paintVector[0][0], paintVector[0][1], Color::White);
+			}
+
+			paintVector.clear();
 		}
 
 	}
 
-	for (int i = 1; i < paintArr.size(); i++)
-	{
-		CircleShape cir;
-		cir.setRadius(3);
-		cir.setFillColor(Color::Black);
-		cir.move(paintArr[i][0], paintArr[i][1]);
-
-		VertexArray line(Quads, 4);
-		line[0].position = Vector2f(100,100);
-		line[0].color = Color(Color::Black);
-		line[1].position = Vector2f(100, 200);
-		line[1].color = Color(Color::Black);
-		line[2].position = Vector2f(200,200);
-		line[2].color = Color(Color::Black);
-		line[3].position = Vector2f(200,100);
-		line[3].color = Color(Color::Black);
-
-		windowScreen->draw(line);
-		windowScreen->draw(cir);
-	}
-
+	windowScreen->draw(canvasSprite);
 	windowScreen->display();
 }
 
-void GameClass::addVector(int x, int y) {
-	vector<int> cache = { x, y };
-
-	paintArr.push_back(cache);
-}
 
 bool GameClass::XYHandler(int x, int y, int xSize, int ySize){
 	bool XHandler = eventVars.mouseX >= x && eventVars.mouseX <= x + xSize;
@@ -349,6 +344,39 @@ void GameClass::windowEvents() {
 		{
 			eventVars.mouseX = eve.mouseMove.x;
 			eventVars.mouseY = eve.mouseMove.y;
+		}
+
+		if (eve.type == Event::MouseButtonPressed)
+		{
+			if (eve.mouseButton.button == Mouse::Right)
+			{
+				eventVars.RMB = true;
+			}
+		}
+
+		if (eve.type == Event::MouseButtonReleased)
+		{
+			if (eve.mouseButton.button == Mouse::Right)
+			{
+				eventVars.RMB = false;
+			}
+		}
+
+
+		if (eve.type == Event::MouseButtonPressed)
+		{
+			if (eve.mouseButton.button == Mouse::Left)
+			{
+				eventVars.LMB = true;
+			}
+		}
+
+		if (eve.type == Event::MouseButtonReleased)
+		{
+			if (eve.mouseButton.button == Mouse::Left)
+			{
+				eventVars.LMB = false;
+			}
 		}
 	}
 

@@ -4,9 +4,11 @@
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include <SFML/Network.hpp>
 #include <cmath>
 #include <vector>
 #include <fstream>
+#include <math.h>
 #include <boost/property_tree/json_parser.hpp>
 
 using namespace std;
@@ -17,11 +19,15 @@ using namespace property_tree;
 class GameClass
 {
 private:
-	RenderWindow* windowScreen;
-	ContextSettings setting;
-	string nickText = "";
-	vector<int> windowSizeXY;
-	vector<vector<int>> paintArr;
+	RenderWindow*		windowScreen;
+	ContextSettings		setting;
+	string				nickText = "";
+	vector<int>			windowSizeXY;
+	vector<vector<int>> paintVector;
+
+	Texture canvas;
+	Image   canvasImage;
+	Sprite  canvasSprite;
 
 	bool gameStart = false;
 	bool nickInputFocus = true;
@@ -43,7 +49,7 @@ private:
 		int WindowSizeXJSON;
 		int WindowSizeYJSON;
 
-		int antialiasingLevel;
+		int  antialiasingLevel;
 		bool fullScreen;
 	};
 
@@ -51,13 +57,16 @@ private:
 	{
 		int mouseX;
 		int mouseY;
+
+		bool LMB;
+		bool RMB;
 	};
 
 public:
 	GameClass();
 
 	ProgramSetting SettingsProgram;
-	EventVars eventVars;
+	EventVars      eventVars;
 
 	int getCharSize(char deco);
 
@@ -65,8 +74,6 @@ public:
 	bool drawPlayButtons();
 	bool XYHandler(int x, int y, int xSize, int ySize);
 
-	void addVector(int x, int y);
-	void linePaint();
 	void painting();
 	void initSettingStruct();
 	void settingDraw();
